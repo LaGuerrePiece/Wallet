@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "381246495258",
+    "project_id": "stackup-mobile",
+    "storage_bucket": "stackup-mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381246495258:android:67c4f13c5ccc26ceee4fa3",
+        "android_client_info": {
+          "package_name": "com.stackup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "381246495258-4pvg6b9q53qj07ve62hcms80v4125rcc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCcUklngfp6u8HJy6pNCXasZdHwIRW1iw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "381246495258-4pvg6b9q53qj07ve62hcms80v4125rcc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

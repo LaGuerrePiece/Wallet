@@ -1,0 +1,36 @@
+{
+  "env": {
+    "node": true,
+    "commonjs": true,
+    "es2021": true,
+    "jest": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "unused-imports"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 12
+  },
+  "rules": {},
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-shadow": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "no-shadow": "off",
+        "no-undef": "off",
+        "unused-imports/no-unused-imports": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/ban-types": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "prefer-const": "off"
+      }
+    }
+  ]
+}

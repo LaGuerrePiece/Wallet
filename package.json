@@ -1,0 +1,77 @@
+{
+  "name": "@stackupfinance/monorepo",
+  "version": "1.0.0",
+  "repository": "git@github.com:stackupfinance/stackup.git",
+  "author": "@stackupfinance",
+  "license": "GPL-3.0",
+  "private": true,
+  "engines": {
+    "node": "^16"
+  },
+  "scripts": {
+    "postinstall": "yarn workspace @stackupfinance/mobile run patch-package --exclude 'nothing'",
+    "install:ios": "cd apps/mobile/ios && pod install && cd - || cd -",
+    "test": "lerna run test --stream",
+    "lint": "lerna run lint --stream",
+    "lint:fix": "lerna run lint:fix --stream",
+    "prettier": "lerna run prettier --stream",
+    "prettier:fix": "lerna run prettier:fix --stream",
+    "dev:explorer:dependencies": "yarn workspace @stackupfinance/explorer run dev:dependencies",
+    "dev:backup:dependencies": "yarn workspace @stackupfinance/backup run dev:dependencies",
+    "dev:bundler:dependencies": "yarn workspace @stackupfinance/bundler run dev:dependencies",
+    "dev:notification:dependencies": "yarn workspace @stackupfinance/notification run dev:dependencies",
+    "dev:docs": "yarn workspace @stackupfinance/docs run start",
+    "dev:explorer": "yarn workspace @stackupfinance/explorer run dev",
+    "dev:backup": "yarn workspace @stackupfinance/backup run dev",
+    "dev:bundler": "yarn workspace @stackupfinance/bundler run dev",
+    "dev:notification": "yarn workspace @stackupfinance/notification run dev",
+    "dev:mobile:start": "yarn workspace @stackupfinance/mobile run start",
+    "dev:mobile:ios": "yarn workspace @stackupfinance/mobile run ios",
+    "dev:mobile:android": "yarn workspace @stackupfinance/mobile run android"
+  },
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/@chainlink/**",
+      "**/@openzeppelin/**",
+      "**/react",
+      "**/react-dom",
+      "**/react-native",
+      "**/react-native/**",
+      "**/react-native-fast-crypto",
+      "**/@react-navigation/**",
+      "**/react-native-safe-area-context",
+      "**/react-native-screens",
+      "**/native-base",
+      "**/react-native-svg",
+      "**/@react-native-async-storage/async-storage",
+      "**/react-native-pager-view",
+      "**/react-native-keychain",
+      "**/@amplitude/react-native",
+      "**/@sentry/react-native",
+      "**/react-native-config",
+      "**/@intercom/intercom-react-native",
+      "**/@gorhom/bottom-sheet",
+      "**/react-native-reanimated",
+      "**/react-native-gesture-handler",
+      "**/@react-native-clipboard/clipboard",
+      "**/@ramp-network/react-native-sdk",
+      "**/react-native-randombytes",
+      "**/react-native-inappbrowser-reborn",
+      "**/@react-native-firebase/app",
+      "**/@react-native-firebase/messaging",
+      "**/@notifee/react-native"
+    ]
+  },
+  "devDependencies": {
+    "lerna": "^5.2.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  },
+  "resolutions": {
+    "react-devtools-core": "4.14.0"
+  }
+}

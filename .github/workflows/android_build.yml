@@ -1,0 +1,86 @@
+name: Android Build
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  android-build:
+    name: Android Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK environment
+        uses: actions/setup-java@v3
+        with:
+          distribution: zulu
+          java-version: 11
+
+      - name: Set up Node environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build environment files
+        run: yarn workspace @stackupfinance/mobile run build:env
+        env:
+          STACKUP_MOBILE_NETWORK_ENV: |
+            ${{ secrets.STACKUP_MOBILE_NETWORK_ENV }}
+          STACKUP_MOBILE_EXPLORER_URL: |
+            ${{ secrets.STACKUP_MOBILE_EXPLORER_URL }}
+          STACKUP_MOBILE_BACKUP_URL: |
+            ${{ secrets.STACKUP_MOBILE_BACKUP_URL }}
+          STACKUP_MOBILE_BUNDLER_URL: |
+            ${{ secrets.STACKUP_MOBILE_BUNDLER_URL }}
+          STACKUP_MOBILE_NOTIFICATION_URL: |
+            ${{ secrets.STACKUP_MOBILE_NOTIFICATION_URL }}
+          STACKUP_MOBILE_AMPLITUDE_API_KEY: |
+            ${{ secrets.STACKUP_MOBILE_AMPLITUDE_API_KEY }}
+          STACKUP_MOBILE_SENTRY_DSN: |
+            ${{ secrets.STACKUP_MOBILE_SENTRY_DSN }}
+          STACKUP_MOBILE_INTERCOM_APP_ID: |
+            ${{ secrets.STACKUP_MOBILE_INTERCOM_APP_ID }}
+          STACKUP_MOBILE_INTERCOM_ANDROID_API_KEY: |
+            ${{ secrets.STACKUP_MOBILE_INTERCOM_ANDROID_API_KEY }}
+          STACKUP_MOBILE_INTERCOM_IOS_API_KEY: |
+            ${{ secrets.STACKUP_MOBILE_INTERCOM_IOS_API_KEY }}
+          STACKUP_MOBILE_SENTRY_AUTH_TOKEN: |
+            ${{ secrets.STACKUP_MOBILE_SENTRY_AUTH_TOKEN }}
+          STACKUP_MOBILE_RAMP_HOST_API_KEY: |
+            ${{ secrets.STACKUP_MOBILE_RAMP_HOST_API_KEY }}
+          STACKUP_MOBILE_MAGIC_API_KEY: |
+            ${{ secrets.STACKUP_MOBILE_MAGIC_API_KEY }}
+
+      - name: Make Gradlew Executable
+        run: cd apps/mobile/android && chmod +x ./gradlew
+
+      - name: Build Android App Bundle
+        run: |
+          cd apps/mobile/android && ./gradlew bundleRelease --no-daemon
+
+      - name: Sign App Bundle
+        id: sign_app
+        uses: r0adkll/sign-android-release@v1
+        with:
+          releaseDirectory: apps/mobile/android/app/build/outputs/bundle/release
+          signingKeyBase64: ${{ secrets.ANDROID_SIGNING_KEY }}
+          alias: ${{ secrets.ANDROID_ALIAS }}
+          keyStorePassword: ${{ secrets.ANDROID_KEY_STORE_PASSWORD }}
+
+      - name: Upload App to Google Play
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: |
+            ${{ secrets.ANDROID_SERVICE_ACCOUNT_JSON_TEXT }}
+          packageName: com.stackup
+          releaseFiles: apps/mobile/android/app/build/outputs/bundle/release/*.aab
+          track: internal
+          status: draft
+          inAppUpdatePriority: 2

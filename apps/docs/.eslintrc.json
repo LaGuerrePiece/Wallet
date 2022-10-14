@@ -1,0 +1,15 @@
+{
+  "plugins": ["@docusaurus"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@docusaurus/recommended",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "env": {
+    "node": true,
+    "es6": true
+  }
+}

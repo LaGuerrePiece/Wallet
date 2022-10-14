@@ -1,0 +1,8 @@
+{
+  "label": "Paymaster",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "A framework for handling custom fee logic on any received UserOperation."
+  }
+}
