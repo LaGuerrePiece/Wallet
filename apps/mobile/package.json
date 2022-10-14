@@ -37,7 +37,7 @@
     "@sentry/react-native": "^4.2.0",
     "@stackupfinance/config": "1.0.0",
     "@stackupfinance/walletjs": "1.0.0",
-    "@walletconnect/client": "^1.7.8",
+    "@walletconnect/client": "^1.8.0",
     "axios": "^0.27.2",
     "date-fns": "^2.29.1",
     "ethers": "^5.6.9",
