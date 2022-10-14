@@ -19,7 +19,7 @@
     "@alch/alchemy-web3": "^1.4.6",
     "@meanie/mongoose-to-json": "^2.6.0",
     "@sentry/node": "^7.7.0",
-    "@sentry/tracing": "^7.7.0",
+    "@sentry/tracing": "^7.15.0",
     "@stackupfinance/config": "1.0.0",
     "@stackupfinance/walletjs": "1.0.0",
     "agenda": "^4.3.0",
