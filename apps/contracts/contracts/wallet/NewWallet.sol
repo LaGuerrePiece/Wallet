@@ -104,7 +104,8 @@ contract DSProxy is DSAuth, DSNote, IWallet, UpgradeableACL, Paymaster {
     uint256 value,
     bytes calldata data
   ) external override authenticate {
-    to.callWithValue(data, value, "Wallet: Execution failed");
+    execute{value: value}(to, data);
+    // to.callWithValue(data, value, "Wallet: Execution failed");
   }
 
   /**
