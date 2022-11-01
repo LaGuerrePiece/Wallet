@@ -6944,9 +6944,9 @@
     "@types/react" "*"
 
 "@types/react@*":
-  version "17.0.48"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.48.tgz#a4532a8b91d7b27b8768b6fc0c3bccb760d15a6c"
-  integrity sha512-zJ6IYlJ8cYYxiJfUaZOQee4lh99mFihBoqkOSEGV+dFi9leROW6+PgstzQ+w3gWTnUfskALtQPGHK6dYmPj+2A==
+  version "17.0.52"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.52.tgz#10d8b907b5c563ac014a541f289ae8eaa9bf2e9b"
+  integrity sha512-vwk8QqVODi0VaZZpDXQCmEmiOuyjEFPY7Ttaw5vjM112LOq37yz1CDJGrRJwA1fYEq4Iitd5rnjd1yWAc/bT+A==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -21340,10 +21340,10 @@ react-native-monorepo-tools@^1.1.4:
     find-root "^1.1.0"
     glob "^7.1.7"
 
-react-native-pager-view@^5.4.25:
-  version "5.4.25"
-  resolved "https://registry.yarnpkg.com/react-native-pager-view/-/react-native-pager-view-5.4.25.tgz#cd639d5387a7f3d5581b55a33c5faa1cbc200f97"
-  integrity sha512-3drrYwaLat2fYszymZe3nHMPASJ4aJMaxiejfA1V5SK3OygYmdtmV2u5prX7TnjueJzGSyyaCYEr2JlrRt4YPg==
+react-native-pager-view@^6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-pager-view/-/react-native-pager-view-6.0.2.tgz#447b85fcb9f35225c4d6885c18689a7d30c181d9"
+  integrity sha512-XL3Qc9k7o0BykclGHtuRUz97FpF6rcKbP8LqszLeS2hKnINYcbUPYqg46EhbwVhFOUJE+XhT3idrSO1e/D6jtQ==
 
 react-native-qrcode-svg@^6.1.2:
   version "6.1.2"
