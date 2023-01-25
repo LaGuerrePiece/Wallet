@@ -18,7 +18,7 @@
   "dependencies": {
     "@meanie/mongoose-to-json": "^2.6.0",
     "@sentry/node": "^7.7.0",
-    "@sentry/tracing": "^7.7.0",
+    "@sentry/tracing": "^7.33.0",
     "@stackupfinance/config": "1.0.0",
     "agenda": "^4.3.0",
     "axios": "^0.27.2",
